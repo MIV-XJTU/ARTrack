@@ -4,7 +4,7 @@ The official PyTorch implementation of our **CVPR 2023 Highlight** paper:
 
 **Autoregressive Visual Trecking**
 
-[Yifan Bai](https://github.com/AlexDotHam)
+GitHub maintainer: [Yifan Bai](https://github.com/AlexDotHam)
 
 [[CVF Open Access](https://openaccess.thecvf.com/content/CVPR2023/papers/Wei_Autoregressive_Visual_Tracking_CVPR_2023_paper.pdf)] 
 
