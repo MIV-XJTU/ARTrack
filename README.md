@@ -39,6 +39,90 @@ We present **ARTrack**, an autoregressive framework for visual object tracking. 
 
 Our baseline model (backbone: ViT-B, resolution: 256x256) can run at **26 fps** (frames per second) on a single NVIDIA GeForce RTX 3090, our alter decoder version can run at **45 fps** on a single NVIDIA GeForce RTX 3090.
 
+## Install the environment
+
+Use the Anaconda (CUDA 12.2)
+```
+conda env create -f ARTrack_env_cuda122.yaml
+```
+
+## Set project paths
+Run the following command to set paths for this project
+```
+python tracking/create_default_local_file.py --workspace_dir . --data_dir ./data --save_dir ./output
+```
+After running this command, you can also modify paths by editing these two files
+```
+lib/train/admin/local.py  # paths about training
+lib/test/evaluation/local.py  # paths about testing
+```
+
+## Data Preparation
+Put the tracking datasets in ./data. It should look like this:
+   ```
+   ${PROJECT_ROOT}
+    -- data
+        -- lasot
+            |-- airplane
+            |-- basketball
+            |-- bear
+            ...
+        -- got10k
+            |-- test
+            |-- train
+            |-- val
+        -- coco
+            |-- annotations
+            |-- images
+        -- trackingnet
+            |-- TRAIN_0
+            |-- TRAIN_1
+            ...
+            |-- TRAIN_11
+            |-- TEST
+   ```
+
+## Training
+Download pre-trained [MAE ViT-Base weights](https://dl.fbaipublicfiles.com/mae/pretrain/mae_pretrain_vit_base.pth) and put it under `$PROJECT_ROOT$/pretrained_models` (different pretrained models can also be used, see [MAE](https://github.com/facebookresearch/mae) for more details).
+
+### One-stage pair-level training
+
+Since sequence-level training requires video input, and the COCO dataset contains only images, traditional training methods were first used to train the model so that it could be fairly compared to other trackers.
+```
+python tracking/train.py --script artrack --config artrack_256_full --save_dir ./output --mode multiple --nproc_per_node 4 --use_wandb 0
+```
+
+Replace `--config` with the desired model config under `experiments/artrack`. We use [wandb](https://github.com/wandb/client) to record detailed training logs, in case you don't want to use wandb, set `--use_wandb 0`.
+
+### Two-stage sequence-level training
+
+To enable sequence-level training, replace 'experience/artrack_seq/*.yaml' PRETRAIN_PTH in the yaml configuration file with the path to your pretrained checkpoint, such as './output/artrack_256_full/checkpoints/train/artrack/artrack_256_full/ARTrack_ep0240.pth.tar'.
+
+```
+python tracking/train.py --script artrack_seq --config artrack_seq_256_full --save_dir ./output --mode multiple --nproc_per_node 4 --use_wandb 0
+```
+
+## Evaluation
+
+Change the corresponding values of `lib/test/evaluation/local.py` to the actual benchmark saving paths
+
+Some testing examples:
+- LaSOT or other off-line evaluated benchmarks (modify `--dataset` correspondingly)
+```
+python tracking/test.py artrack_seq artrack_seq_256_full --dataset lasot --threads 16 --num_gpus 4
+python tracking/analysis_results.py # need to modify tracker configs and names
+```
+- GOT10K-test
+```
+python tracking/test.py artrack_seq artrack_seq_256_full --dataset got10k_test --threads 16 --num_gpus 4
+python lib/test/utils/transform_got10k.py --tracker_name ostrack --cfg_name vitb_384_mae_ce_32x4_got10k_ep100
+```
+- TrackingNet
+```
+python tracking/test.py artrack_seq artrack_seq_256_full --dataset trackingnet --threads 16 --num_gpus 4
+python lib/test/utils/transform_trackingnet.py --tracker_name ostrack --cfg_name vitb_384_mae_ce_32x4_ep300
+```
+
 ## Acknowledgement
 
 :heart::heart::heart:Our idea is implemented base on the following projects. We really appreciate their excellent open-source works!
