@@ -39,6 +39,18 @@ We present **ARTrack**, an autoregressive framework for visual object tracking. 
 
 Our baseline model (backbone: ViT-B, resolution: 256x256) can run at **26 fps** (frames per second) on a single NVIDIA GeForce RTX 3090, our alter decoder version can run at **45 fps** on a single NVIDIA GeForce RTX 3090.
 
+## Update for checkpoint and raw_result(ARTrack_base_256_full):
+
+You can download the model weights and raw_result from [Google Drive](https://drive.google.com/drive/folders/1KsH_MIZIdgjZpUZBmR4P88yeYDqM8yNW?usp=sharing)
+
+|             Variant             |       ARTrack-256       |
+|:-------------------------------:|:-----------------------:|
+|          Model Config           | ViT-B, 256^2 resolution |
+| GOT-10k (AO / SR 0.5 / SR 0.75) |   76.7 / 85.7 / 74.8    |
+|    LaSOT (AUC / Norm P / P)     |   70.8 / 79.6 / 76.3    |
+| TrackingNet (AUC / Norm P / P)  |   84.3 / 88.7 / 83.4    |
+|  LaSOT_ext (AUC / Norm P / P)   |   48.4 / 57.7 / 53.7    |
+
 ## Install the environment
 
 Use the Anaconda (CUDA 12.2)

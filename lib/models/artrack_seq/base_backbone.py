@@ -9,21 +9,6 @@ from timm.models.layers import DropPath, to_2tuple, trunc_normal_
 from lib.models.layers.patch_embed import PatchEmbed
 from lib.models.artrack_seq.utils import combine_tokens, recover_tokens
 
-
-def generate_square_subsequent_mask(sz, sx):
-    r"""Generate a square mask for the sequence. The masked positions are filled with float('-inf').
-        Unmasked positions are filled with float(0.0).
-    """
-    # 0 means mask, 1 means visible
-    sum = sz + sx
-    mask = (torch.triu(torch.ones(sum, sum)) == 1).transpose(0, 1)
-    mask[:sz, :] = 1
-    mask[:sz, sz:] = 1
-    mask[sz:sz + sx, :] = 1
-    # mask[sz+sx:, :sz] = 0
-    return ~mask
-
-
 class BaseBackbone(nn.Module):
     def __init__(self):
         super().__init__()
@@ -129,8 +114,6 @@ class BaseBackbone(nn.Module):
         s_x = x.shape[1]
         s_z = z.shape[1]
 
-        mask = generate_square_subsequent_mask(s_z, s_x).to(x.device)
-
         if self.add_cls_token:
             cls_tokens = self.cls_token.expand(B, -1, -1)
             cls_tokens = cls_tokens + self.cls_pos_embed
@@ -139,10 +122,6 @@ class BaseBackbone(nn.Module):
         x += self.pos_embed_x
 
         z += identity[:, 0, :].repeat(B, self.pos_embed_z.shape[1], 1)
-        # print("identity z")
-        # print(z)
-        # print(z[0][0])
-        # print(self.identity[0])
         x += identity[:, 1, :].repeat(B, self.pos_embed_x.shape[1], 1)
 
         if self.add_sep_seg:
