@@ -53,9 +53,9 @@ You can download the model weights and raw_result from [Google Drive](https://dr
 
 ## Install the environment
 
-Use the Anaconda (CUDA 12.2)
+Use the Anaconda (CUDA 11.3)
 ```
-conda env create -f ARTrack_env_cuda122.yaml
+conda env create -f ARTrack_env_cuda113.yaml
 ```
 
 ## Set project paths
