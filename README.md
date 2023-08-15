@@ -142,6 +142,10 @@ python lib/test/utils/transform_trackingnet.py --tracker_name ostrack --cfg_name
 - [OSTrack](https://github.com/botaoye/OSTrack) [[related paper](https://arxiv.org/abs/2203.11991)]
 - [PyTracking](https://github.com/visionml/pytracking) [[related paper](https://arxiv.org/abs/2208.06888)]
 
+:heart::heart::heart:This project is not for commercial use. For commercial use, please contact the author.
+:heart::heart::heart:This project is not for commercial use. For commercial use, please contact the author.
+:heart::heart::heart:This project is not for commercial use. For commercial use, please contact the author.
+
 ## Citation
 
 If any parts of our paper and code help your research, please consider citing us and giving a star to our repository.
