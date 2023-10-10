@@ -139,6 +139,7 @@ python lib/test/utils/transform_trackingnet.py --tracker_name ostrack --cfg_name
 
 :heart::heart::heart:Our idea is implemented base on the following projects. We really appreciate their excellent open-source works!
 
+- [SIoU](https://github.com/AlexDotHam/SIoU) [[related paper](https://arxiv.org/abs/2205.12740)]
 - [OSTrack](https://github.com/botaoye/OSTrack) [[related paper](https://arxiv.org/abs/2203.11991)]
 - [PyTracking](https://github.com/visionml/pytracking) [[related paper](https://arxiv.org/abs/2208.06888)]
 
