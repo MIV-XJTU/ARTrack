@@ -39,6 +39,7 @@ DATA:
     SAMPLE_PER_EPOCH: 10000
 MODEL:
   BINS: 600
+  NUM_HEADS: 16
   RANGE: 2
   PRETRAIN_FILE: "mae_pretrain_vit_large.pth"
   BACKBONE:
