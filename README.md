@@ -8,12 +8,13 @@ GitHub maintainer: [Yifan Bai](https://github.com/AlexDotHam)
 
 [[CVF Open Access](https://openaccess.thecvf.com/content/CVPR2023/papers/Wei_Autoregressive_Visual_Tracking_CVPR_2023_paper.pdf)] 
 
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/autoregressive-visual-tracking/visual-object-tracking-on-got-10k)](https://paperswithcode.com/sota/visual-object-tracking-on-got-10k?p=autoregressive-visual-tracking)
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/autoregressive-visual-tracking/visual-object-tracking-on-tnl2k)](https://paperswithcode.com/sota/visual-object-tracking-on-tnl2k?p=autoregressive-visual-tracking)
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/autoregressive-visual-tracking/visual-object-tracking-on-lasot)](https://paperswithcode.com/sota/visual-object-tracking-on-lasot?p=autoregressive-visual-tracking)
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/autoregressive-visual-tracking/visual-object-tracking-on-trackingnet)](https://paperswithcode.com/sota/visual-object-tracking-on-trackingnet?p=autoregressive-visual-tracking)
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/autoregressive-visual-tracking/visual-object-tracking-on-lasot-ext)](https://paperswithcode.com/sota/visual-object-tracking-on-lasot-ext?p=autoregressive-visual-tracking)
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/autoregressive-visual-tracking/visual-object-tracking-on-uav123)](https://paperswithcode.com/sota/visual-object-tracking-on-uav123?p=autoregressive-visual-tracking)
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/artrackv2-prompting-autoregressive-tracker/visual-object-tracking-on-got-10k)](https://paperswithcode.com/sota/visual-object-tracking-on-got-10k?p=artrackv2-prompting-autoregressive-tracker)
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/artrackv2-prompting-autoregressive-tracker/visual-object-tracking-on-lasot)](https://paperswithcode.com/sota/visual-object-tracking-on-lasot?p=artrackv2-prompting-autoregressive-tracker)
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/artrackv2-prompting-autoregressive-tracker/visual-object-tracking-on-trackingnet)](https://paperswithcode.com/sota/visual-object-tracking-on-trackingnet?p=artrackv2-prompting-autoregressive-tracker)
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/artrackv2-prompting-autoregressive-tracker/visual-object-tracking-on-needforspeed)](https://paperswithcode.com/sota/visual-object-tracking-on-needforspeed?p=artrackv2-prompting-autoregressive-tracker)
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/artrackv2-prompting-autoregressive-tracker/visual-object-tracking-on-tnl2k)](https://paperswithcode.com/sota/visual-object-tracking-on-tnl2k?p=artrackv2-prompting-autoregressive-tracker)
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/artrackv2-prompting-autoregressive-tracker/visual-object-tracking-on-lasot-ext)](https://paperswithcode.com/sota/visual-object-tracking-on-lasot-ext?p=artrackv2-prompting-autoregressive-tracker)
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/artrackv2-prompting-autoregressive-tracker/visual-object-tracking-on-uav123)](https://paperswithcode.com/sota/visual-object-tracking-on-uav123?p=artrackv2-prompting-autoregressive-tracker)
 
 ## Highlight
 
