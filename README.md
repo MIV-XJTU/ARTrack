@@ -8,6 +8,8 @@ GitHub maintainer: [Yifan Bai](https://github.com/AlexDotHam)
 
 [[CVF Open Access](https://openaccess.thecvf.com/content/CVPR2023/papers/Wei_Autoregressive_Visual_Tracking_CVPR_2023_paper.pdf)] 
 
+### :bookmark:We present ARTrack-L-384 checkpoints now!!!
+
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/artrackv2-prompting-autoregressive-tracker/visual-object-tracking-on-got-10k)](https://paperswithcode.com/sota/visual-object-tracking-on-got-10k?p=artrackv2-prompting-autoregressive-tracker)
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/artrackv2-prompting-autoregressive-tracker/visual-object-tracking-on-lasot)](https://paperswithcode.com/sota/visual-object-tracking-on-lasot?p=artrackv2-prompting-autoregressive-tracker)
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/artrackv2-prompting-autoregressive-tracker/visual-object-tracking-on-trackingnet)](https://paperswithcode.com/sota/visual-object-tracking-on-trackingnet?p=artrackv2-prompting-autoregressive-tracker)
