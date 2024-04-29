@@ -44,6 +44,10 @@ We present **ARTrack**, an autoregressive framework for visual object tracking. 
 
 Our baseline model (backbone: ViT-B, resolution: 256x256) can run at **26 fps** (frames per second) on a single NVIDIA GeForce RTX 3090, our alter decoder version can run at **45 fps** on a single NVIDIA GeForce RTX 3090.
 
+## Bug of array of inhomogeneous shape
+
+Thanks to [MrtXue](https://github.com/MrtXue), if you meet the "ValueError: setting an array element with a sequence." when you train in the second stage, you can try to reduce your numpy version to 1.23.
+
 ## Update for checkpoint(ARTrack_large_384_full):
 
 You can download the model weights from [Google Drive](https://drive.google.com/drive/folders/1KsH_MIZIdgjZpUZBmR4P88yeYDqM8yNW?usp=sharing)
