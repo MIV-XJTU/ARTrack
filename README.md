@@ -64,9 +64,9 @@ You can download the model weights and raw_result from [Google Drive](https://dr
 |:-------------------------------:|:-----------------------:|:-----------------------:|
 |          Model Config           | ViT-B, 256^2 resolution | ViT-B, 256^2 resolution |
 | GOT-10k (AO / SR 0.5 / SR 0.75) |   76.7 / 85.7 / 74.8    |   74.1 / 83.1 / 70.0    |
-|    LaSOT (AUC / Norm P / P)     |   70.8 / 79.6 / 76.3    |                         |
-| TrackingNet (AUC / Norm P / P)  |   84.3 / 88.7 / 83.4    |                         |
-|  LaSOT_ext (AUC / Norm P / P)   |   48.4 / 57.7 / 53.7    |                         |
+|    LaSOT (AUC / Norm P / P)     |   70.8 / 79.6 / 76.3    |        - / - / -        |
+| TrackingNet (AUC / Norm P / P)  |   84.3 / 88.7 / 83.4    |        - / - / -        |
+|  LaSOT_ext (AUC / Norm P / P)   |   48.4 / 57.7 / 53.7    |        - / - / -        |
 
 ## Install the environment
 
