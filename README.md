@@ -10,6 +10,8 @@ GitHub maintainer: [Yifan Bai](https://github.com/AlexDotHam)
 
 ### :bookmark:We present ARTrack-L-384 checkpoints now!!!
 
+### :bookmark:We present ARTrack-B-256-got checkpoints now!!!
+
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/artrackv2-prompting-autoregressive-tracker/visual-object-tracking-on-got-10k)](https://paperswithcode.com/sota/visual-object-tracking-on-got-10k?p=artrackv2-prompting-autoregressive-tracker)
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/artrackv2-prompting-autoregressive-tracker/visual-object-tracking-on-lasot)](https://paperswithcode.com/sota/visual-object-tracking-on-lasot?p=artrackv2-prompting-autoregressive-tracker)
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/artrackv2-prompting-autoregressive-tracker/visual-object-tracking-on-trackingnet)](https://paperswithcode.com/sota/visual-object-tracking-on-trackingnet?p=artrackv2-prompting-autoregressive-tracker)
@@ -58,13 +60,13 @@ You can download the model weights from [Google Drive](https://drive.google.com/
 
 You can download the model weights and raw_result from [Google Drive](https://drive.google.com/drive/folders/1KsH_MIZIdgjZpUZBmR4P88yeYDqM8yNW?usp=sharing)
 
-|             Variant             |       ARTrack-256       |
-|:-------------------------------:|:-----------------------:|
-|          Model Config           | ViT-B, 256^2 resolution |
-| GOT-10k (AO / SR 0.5 / SR 0.75) |   76.7 / 85.7 / 74.8    |
-|    LaSOT (AUC / Norm P / P)     |   70.8 / 79.6 / 76.3    |
-| TrackingNet (AUC / Norm P / P)  |   84.3 / 88.7 / 83.4    |
-|  LaSOT_ext (AUC / Norm P / P)   |   48.4 / 57.7 / 53.7    |
+|             Variant             |       ARTrack-256       |     ARTrack-256-got     |
+|:-------------------------------:|:-----------------------:|:-----------------------:|
+|          Model Config           | ViT-B, 256^2 resolution | ViT-B, 256^2 resolution |
+| GOT-10k (AO / SR 0.5 / SR 0.75) |   76.7 / 85.7 / 74.8    |   74.1 / 83.1 / 70.0    |
+|    LaSOT (AUC / Norm P / P)     |   70.8 / 79.6 / 76.3    |                         |
+| TrackingNet (AUC / Norm P / P)  |   84.3 / 88.7 / 83.4    |                         |
+|  LaSOT_ext (AUC / Norm P / P)   |   48.4 / 57.7 / 53.7    |                         |
 
 ## Install the environment
 
