@@ -2,11 +2,14 @@
 
 The official PyTorch implementation of our **CVPR 2023 Highlight** paper:
 
-**Autoregressive Visual Trecking**
+**Autoregressive Visual Tracking**
 
 GitHub maintainer: [Yifan Bai](https://github.com/AlexDotHam)
 
 [[CVF Open Access](https://openaccess.thecvf.com/content/CVPR2023/papers/Wei_Autoregressive_Visual_Tracking_CVPR_2023_paper.pdf)] 
+
+### :bookmark:Our ARTrackV2 is accepted by CVPR2024!!!
+[[Paper and Demo](https://artrackv2.github.io/)] 
 
 ### :bookmark:We present ARTrack-L-384 checkpoints now!!!
 
@@ -182,6 +185,13 @@ If any parts of our paper and code help your research, please consider citing us
     month     = {June},
     year      = {2023},
     pages     = {9697-9706}
+}
+@InProceedings{Bai_2024_CVPR,
+    author    = {Bai, Yifan and Zhao, Zeyang and Gong, Yihong and Wei, Xing},
+    title     = {ARTrackV2: Prompting Autoregressive Tracker Where to Look and How to Describe},
+    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+    month     = {June},
+    year      = {2024}
 }
 ```
 
