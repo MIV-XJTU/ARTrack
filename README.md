@@ -12,6 +12,8 @@ GitHub maintainer: [Yifan Bai](https://github.com/AlexDotHam)
 [[Paper and Demo](https://artrackv2.github.io/)] 
 [[Temporal Code](https://drive.google.com/file/d/15PHRN9utPfm1L4djr7U6MLHWIkx90EVD/view?usp=sharing)]
 
+Due to recent busy schedules, I really can't find the time to organize the code. Therefore, I'm only providing the temporal code (re-training and with ridiculous variable names and strange folder structure) for now. Once I have more time, I will organize and merge it into ARTrackV1. If you are familiar with the ARTrackV1 code, I believe you can quickly use the Temporal Code for inference. For now, we will not be releasing the training code.
+
 |             Variant             |       [ARTrackV2-B-256](https://drive.google.com/file/d/1tGaY5jQxZOTzJDWXgOgoHtBwc5l4NLQ2/view?usp=drive_link)       |     [ARTrackV2-B-256-GOT](https://drive.google.com/file/d/1RqsjHqTBsIN5ivD-C5tXDyhZlGZjJN88/view?usp=drive_link)     |     [ARTrackV2-L-384-GOT](https://drive.google.com/file/d/1KJ-TXFSn6K_OhchoRE29ePZbSm9sBHVS/view?usp=drive_link)     |
 |:-------------------------------:|:-----------------------:|:-----------------------:|:-----------------------:|
 |          Model Config           | ViT-B, 256^2 resolution | ViT-B, 256^2 resolution | ViT-L, 384^2 resolution |
