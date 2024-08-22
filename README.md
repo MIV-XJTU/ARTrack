@@ -10,6 +10,16 @@ GitHub maintainer: [Yifan Bai](https://github.com/AlexDotHam)
 
 ### :bookmark:Our ARTrackV2 is accepted by CVPR2024!!!
 [[Paper and Demo](https://artrackv2.github.io/)] 
+[[Temporal Code](https://drive.google.com/file/d/15PHRN9utPfm1L4djr7U6MLHWIkx90EVD/view?usp=sharing)]
+
+|             Variant             |       [ARTrackV2-B-256](https://drive.google.com/file/d/1tGaY5jQxZOTzJDWXgOgoHtBwc5l4NLQ2/view?usp=drive_link)       |     [ARTrackV2-B-256-GOT](https://drive.google.com/file/d/1RqsjHqTBsIN5ivD-C5tXDyhZlGZjJN88/view?usp=drive_link)     |     [ARTrackV2-L-384-GOT](https://drive.google.com/file/d/1KJ-TXFSn6K_OhchoRE29ePZbSm9sBHVS/view?usp=drive_link)     |
+|:-------------------------------:|:-----------------------:|:-----------------------:|:-----------------------:|
+|          Model Config           | ViT-B, 256^2 resolution | ViT-B, 256^2 resolution | ViT-L, 384^2 resolution |
+| GOT-10k (AO / SR 0.5 / SR 0.75) |   - / - / -    |   76.1 / 85.5 / 72.9    |   79.6 / 88.0 / 78.7    |
+|    LaSOT (AUC / Norm P / P)     |   71.5 / 80.3 / 77.5    |        - / - / -        |        - / - / -        |
+| TrackingNet (AUC / Norm P / P)  |   84.3 / 89.1 / 83.6    |        - / - / -        |        - / - / -        |
+|  LaSOT_ext (AUC / Norm P / P)   |   51.1 / 58.4 / 61.5    |        - / - / -        |        - / - / -        |
+
 
 ### :bookmark:We present ARTrack-L-384 checkpoints now!!!
 
