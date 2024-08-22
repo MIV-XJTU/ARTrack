@@ -1,5 +1,13 @@
 # ARTrack
 
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/artrackv2-prompting-autoregressive-tracker/visual-object-tracking-on-got-10k)](https://paperswithcode.com/sota/visual-object-tracking-on-got-10k?p=artrackv2-prompting-autoregressive-tracker)
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/artrackv2-prompting-autoregressive-tracker/visual-object-tracking-on-lasot)](https://paperswithcode.com/sota/visual-object-tracking-on-lasot?p=artrackv2-prompting-autoregressive-tracker)
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/artrackv2-prompting-autoregressive-tracker/visual-object-tracking-on-trackingnet)](https://paperswithcode.com/sota/visual-object-tracking-on-trackingnet?p=artrackv2-prompting-autoregressive-tracker)
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/artrackv2-prompting-autoregressive-tracker/visual-object-tracking-on-needforspeed)](https://paperswithcode.com/sota/visual-object-tracking-on-needforspeed?p=artrackv2-prompting-autoregressive-tracker)
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/artrackv2-prompting-autoregressive-tracker/visual-object-tracking-on-tnl2k)](https://paperswithcode.com/sota/visual-object-tracking-on-tnl2k?p=artrackv2-prompting-autoregressive-tracker)
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/artrackv2-prompting-autoregressive-tracker/visual-object-tracking-on-lasot-ext)](https://paperswithcode.com/sota/visual-object-tracking-on-lasot-ext?p=artrackv2-prompting-autoregressive-tracker)
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/artrackv2-prompting-autoregressive-tracker/visual-object-tracking-on-uav123)](https://paperswithcode.com/sota/visual-object-tracking-on-uav123?p=artrackv2-prompting-autoregressive-tracker)
+
 The official PyTorch implementation of our **CVPR 2023 Highlight** paper:
 
 **Autoregressive Visual Tracking**
@@ -26,14 +34,6 @@ Due to recent busy schedules, I really can't find the time to organize the code.
 ### :bookmark:We present ARTrack-L-384 checkpoints now!!!
 
 ### :bookmark:We present ARTrack-B-256-got checkpoints now!!!
-
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/artrackv2-prompting-autoregressive-tracker/visual-object-tracking-on-got-10k)](https://paperswithcode.com/sota/visual-object-tracking-on-got-10k?p=artrackv2-prompting-autoregressive-tracker)
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/artrackv2-prompting-autoregressive-tracker/visual-object-tracking-on-lasot)](https://paperswithcode.com/sota/visual-object-tracking-on-lasot?p=artrackv2-prompting-autoregressive-tracker)
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/artrackv2-prompting-autoregressive-tracker/visual-object-tracking-on-trackingnet)](https://paperswithcode.com/sota/visual-object-tracking-on-trackingnet?p=artrackv2-prompting-autoregressive-tracker)
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/artrackv2-prompting-autoregressive-tracker/visual-object-tracking-on-needforspeed)](https://paperswithcode.com/sota/visual-object-tracking-on-needforspeed?p=artrackv2-prompting-autoregressive-tracker)
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/artrackv2-prompting-autoregressive-tracker/visual-object-tracking-on-tnl2k)](https://paperswithcode.com/sota/visual-object-tracking-on-tnl2k?p=artrackv2-prompting-autoregressive-tracker)
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/artrackv2-prompting-autoregressive-tracker/visual-object-tracking-on-lasot-ext)](https://paperswithcode.com/sota/visual-object-tracking-on-lasot-ext?p=artrackv2-prompting-autoregressive-tracker)
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/artrackv2-prompting-autoregressive-tracker/visual-object-tracking-on-uav123)](https://paperswithcode.com/sota/visual-object-tracking-on-uav123?p=artrackv2-prompting-autoregressive-tracker)
 
 ## Highlight
 
