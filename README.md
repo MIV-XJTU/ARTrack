@@ -1,19 +1,36 @@
 # ARTrack
 
-The official PyTorch implementation of our **CVPR 2023 Highlight** paper:
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/artrackv2-prompting-autoregressive-tracker/visual-object-tracking-on-got-10k)](https://paperswithcode.com/sota/visual-object-tracking-on-got-10k?p=artrackv2-prompting-autoregressive-tracker)
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/artrackv2-prompting-autoregressive-tracker/visual-object-tracking-on-lasot)](https://paperswithcode.com/sota/visual-object-tracking-on-lasot?p=artrackv2-prompting-autoregressive-tracker)
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/artrackv2-prompting-autoregressive-tracker/visual-object-tracking-on-trackingnet)](https://paperswithcode.com/sota/visual-object-tracking-on-trackingnet?p=artrackv2-prompting-autoregressive-tracker)
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/artrackv2-prompting-autoregressive-tracker/visual-object-tracking-on-needforspeed)](https://paperswithcode.com/sota/visual-object-tracking-on-needforspeed?p=artrackv2-prompting-autoregressive-tracker)
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/artrackv2-prompting-autoregressive-tracker/visual-object-tracking-on-tnl2k)](https://paperswithcode.com/sota/visual-object-tracking-on-tnl2k?p=artrackv2-prompting-autoregressive-tracker)
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/artrackv2-prompting-autoregressive-tracker/visual-object-tracking-on-lasot-ext)](https://paperswithcode.com/sota/visual-object-tracking-on-lasot-ext?p=artrackv2-prompting-autoregressive-tracker)
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/artrackv2-prompting-autoregressive-tracker/visual-object-tracking-on-uav123)](https://paperswithcode.com/sota/visual-object-tracking-on-uav123?p=artrackv2-prompting-autoregressive-tracker)
 
-**Autoregressive Visual Trecking**
+The official PyTorch implementation of our **CVPR 2023 Highlight**  and  **CVPR 2024 Poster**  paper:
+
+**Autoregressive Visual Tracking**
+
+**ARTrackV2: Prompting Autoregressive Tracker Where to Look and How to Describe**
 
 GitHub maintainer: [Yifan Bai](https://github.com/AlexDotHam)
 
-[[CVF Open Access](https://openaccess.thecvf.com/content/CVPR2023/papers/Wei_Autoregressive_Visual_Tracking_CVPR_2023_paper.pdf)] 
+[[CVPR2023](https://openaccess.thecvf.com/content/CVPR2023/papers/Wei_Autoregressive_Visual_Tracking_CVPR_2023_paper.pdf)] 
+[[CVPR2024](https://artrackv2.github.io/)] 
 
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/autoregressive-visual-tracking/visual-object-tracking-on-got-10k)](https://paperswithcode.com/sota/visual-object-tracking-on-got-10k?p=autoregressive-visual-tracking)
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/autoregressive-visual-tracking/visual-object-tracking-on-tnl2k)](https://paperswithcode.com/sota/visual-object-tracking-on-tnl2k?p=autoregressive-visual-tracking)
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/autoregressive-visual-tracking/visual-object-tracking-on-lasot)](https://paperswithcode.com/sota/visual-object-tracking-on-lasot?p=autoregressive-visual-tracking)
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/autoregressive-visual-tracking/visual-object-tracking-on-trackingnet)](https://paperswithcode.com/sota/visual-object-tracking-on-trackingnet?p=autoregressive-visual-tracking)
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/autoregressive-visual-tracking/visual-object-tracking-on-lasot-ext)](https://paperswithcode.com/sota/visual-object-tracking-on-lasot-ext?p=autoregressive-visual-tracking)
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/autoregressive-visual-tracking/visual-object-tracking-on-uav123)](https://paperswithcode.com/sota/visual-object-tracking-on-uav123?p=autoregressive-visual-tracking)
+### :bookmark:Our ARTrackV2 is accepted by CVPR2024!!!
+[[Deprecated Code](https://drive.google.com/file/d/15PHRN9utPfm1L4djr7U6MLHWIkx90EVD/view?usp=sharing)]
+
+We have released the training code for ARTrackV2 and merged it into this repository. You can adjust the config to use the corresponding ARTrackV2-marked modules. The training process remains the same as V1.
+
+|             Variant             |       [ARTrackV2-B-256](https://drive.google.com/file/d/1tGaY5jQxZOTzJDWXgOgoHtBwc5l4NLQ2/view?usp=drive_link)       |     [ARTrackV2-B-256-GOT](https://drive.google.com/file/d/1RqsjHqTBsIN5ivD-C5tXDyhZlGZjJN88/view?usp=drive_link)     |     [ARTrackV2-L-384-GOT](https://drive.google.com/file/d/1KJ-TXFSn6K_OhchoRE29ePZbSm9sBHVS/view?usp=drive_link)     |
+|:-------------------------------:|:-----------------------:|:-----------------------:|:-----------------------:|
+|          Model Config           | ViT-B, 256^2 resolution | ViT-B, 256^2 resolution | ViT-L, 384^2 resolution |
+| GOT-10k (AO / SR 0.5 / SR 0.75) |   - / - / -    |   76.1 / 85.5 / 72.9    |   79.6 / 88.0 / 78.7    |
+|    LaSOT (AUC / Norm P / P)     |   71.5 / 80.3 / 77.5    |        - / - / -        |        - / - / -        |
+| TrackingNet (AUC / Norm P / P)  |   84.3 / 89.1 / 83.6    |        - / - / -        |        - / - / -        |
+|  LaSOT_ext (AUC / Norm P / P)   |   51.1 / 58.4 / 61.5    |        - / - / -        |        - / - / -        |
 
 ## Highlight
 
@@ -39,17 +56,33 @@ We present **ARTrack**, an autoregressive framework for visual object tracking. 
 
 Our baseline model (backbone: ViT-B, resolution: 256x256) can run at **26 fps** (frames per second) on a single NVIDIA GeForce RTX 3090, our alter decoder version can run at **45 fps** on a single NVIDIA GeForce RTX 3090.
 
+## Bug of array of inhomogeneous shape
+
+Thanks to [MrtXue](https://github.com/MrtXue), if you meet the "ValueError: setting an array element with a sequence." when you train in the second stage, you can try to reduce your numpy version to 1.23.
+
+## Update for checkpoint(ARTrack_large_384_full):
+
+You can download the model weights from [Google Drive](https://drive.google.com/drive/folders/1KsH_MIZIdgjZpUZBmR4P88yeYDqM8yNW?usp=sharing)
+
+|             Variant             |      ARTrack-L-384      |
+|:-------------------------------:|:-----------------------:|
+|          Model Config           | ViT-L, 384^2 resolution |
+| GOT-10k (AO / SR 0.5 / SR 0.75) |   80.0 / 88.5 / 80.0    |
+|    LaSOT (AUC / Norm P / P)     |   73.5 / 82.4 / 80.6    |
+| TrackingNet (AUC / Norm P / P)  |   85.5 / 90.1 / 85.9    |
+|  LaSOT_ext (AUC / Norm P / P)   |   51.8 / 62.3 / 58.8    |
+
 ## Update for checkpoint and raw_result(ARTrack_base_256_full):
 
 You can download the model weights and raw_result from [Google Drive](https://drive.google.com/drive/folders/1KsH_MIZIdgjZpUZBmR4P88yeYDqM8yNW?usp=sharing)
 
-|             Variant             |       ARTrack-256       |
-|:-------------------------------:|:-----------------------:|
-|          Model Config           | ViT-B, 256^2 resolution |
-| GOT-10k (AO / SR 0.5 / SR 0.75) |   76.7 / 85.7 / 74.8    |
-|    LaSOT (AUC / Norm P / P)     |   70.8 / 79.6 / 76.3    |
-| TrackingNet (AUC / Norm P / P)  |   84.3 / 88.7 / 83.4    |
-|  LaSOT_ext (AUC / Norm P / P)   |   48.4 / 57.7 / 53.7    |
+|             Variant             |       ARTrack-256       |     ARTrack-256-got     |
+|:-------------------------------:|:-----------------------:|:-----------------------:|
+|          Model Config           | ViT-B, 256^2 resolution | ViT-B, 256^2 resolution |
+| GOT-10k (AO / SR 0.5 / SR 0.75) |   76.7 / 85.7 / 74.8    |   74.1 / 83.1 / 70.0    |
+|    LaSOT (AUC / Norm P / P)     |   70.8 / 79.6 / 76.3    |        - / - / -        |
+| TrackingNet (AUC / Norm P / P)  |   84.3 / 88.7 / 83.4    |        - / - / -        |
+|  LaSOT_ext (AUC / Norm P / P)   |   48.4 / 57.7 / 53.7    |        - / - / -        |
 
 ## Install the environment
 
@@ -161,6 +194,13 @@ If any parts of our paper and code help your research, please consider citing us
     month     = {June},
     year      = {2023},
     pages     = {9697-9706}
+}
+@InProceedings{Bai_2024_CVPR,
+    author    = {Bai, Yifan and Zhao, Zeyang and Gong, Yihong and Wei, Xing},
+    title     = {ARTrackV2: Prompting Autoregressive Tracker Where to Look and How to Describe},
+    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+    month     = {June},
+    year      = {2024}
 }
 ```
 
