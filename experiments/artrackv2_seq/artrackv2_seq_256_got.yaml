@@ -38,7 +38,7 @@ MODEL:
   EXTENSION: 3
   PRENUM: 7
   PRETRAIN_FILE: "mae_pretrain_vit_base.pth"
-  PRETRAIN_PTH: "/data1/baiyifan/artrackv2_256_got/checkpoints/train/artrackv2/artrackv2_256_got/ARTrackV2_ep0118.pth.tar"
+  PRETRAIN_PTH: ""
   EXTRA_MERGER: False
   RETURN_INTER: False
   DECODER:
@@ -58,12 +58,12 @@ TRAIN:
   BACKBONE_MULTIPLIER: 0.1
   DROP_PATH_RATE: 0.1
   BATCH_SIZE: 8
-  EPOCH: 120
+  EPOCH: 30
   GIOU_WEIGHT: 2.0
   L1_WEIGHT: 0.0
   GRAD_CLIP_NORM: 0.1
   LR: 0.00008
-  LR_DROP_EPOCH: 90
+  LR_DROP_EPOCH: 999
   NUM_WORKER: 6
   OPTIMIZER: ADAMW
   PRINT_INTERVAL: 1
