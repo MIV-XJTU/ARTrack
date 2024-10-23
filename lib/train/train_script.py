@@ -4,19 +4,21 @@ from lib.utils.box_ops import giou_loss
 from torch.nn.functional import l1_loss
 from torch.nn import BCEWithLogitsLoss
 # train pipeline related
-from lib.train.trainers import LTRTrainer, LTRSeqTrainer
+from lib.train.trainers import LTRTrainer, LTRSeqTrainer, LTRSeqTrainerV2
 from lib.train.dataset import Lasot, Got10k, MSCOCOSeq, ImagenetVID, TrackingNet
 from lib.train.dataset import Lasot_lmdb, Got10k_lmdb, MSCOCOSeq_lmdb, ImagenetVID_lmdb, TrackingNet_lmdb
-from lib.train.data import sampler, opencv_loader, processing, LTRLoader, sequence_sampler
+from lib.train.data import sampler, opencv_loader, processing, LTRLoader, sequence_sampler, sequence_sampler_v2
 # distributed training related
 from torch.nn.parallel import DistributedDataParallel as DDP
 # some more advanced functions
 from .base_functions import *
 # network related
 from lib.models.artrack import build_artrack
+from lib.models.artrackv2 import build_artrackv2
 from lib.models.artrack_seq import build_artrack_seq
+from lib.models.artrackv2_seq import build_artrackv2_seq
 # forward propagation related
-from lib.train.actors import ARTrackActor, ARTrackSeqActor
+from lib.train.actors import ARTrackActor, ARTrackSeqActor, ARTrackV2Actor, ARTrackV2SeqActor
 # for import modules
 import importlib
 
@@ -160,6 +162,22 @@ def run(settings):
         loader_train = SLTLoader('train', dataset_train, training=True, batch_size=cfg.TRAIN.BATCH_SIZE,
                                  num_workers=cfg.TRAIN.NUM_WORKER,
                                  shuffle=False, drop_last=True)
+    elif settings.script_name == "artrackv2":
+        net = build_artrackv2(cfg)
+        loader_train, loader_val = build_dataloaders(cfg, settings)
+    elif settings.script_name == "artrackv2_seq":
+        net = build_artrackv2_seq(cfg)
+        dataset_train = sequence_sampler_v2.SequenceSampler(
+            datasets=names2datasets(cfg.DATA.TRAIN.DATASETS_NAME, settings, opencv_loader),
+            p_datasets=cfg.DATA.TRAIN.DATASETS_RATIO,
+            samples_per_epoch=cfg.DATA.TRAIN.SAMPLE_PER_EPOCH,
+            max_gap=cfg.DATA.MAX_GAP, max_interval=cfg.DATA.MAX_INTERVAL,
+            num_search_frames=cfg.DATA.SEARCH.NUMBER, num_template_frames=1,
+            frame_sample_mode='random_interval',
+            prob=cfg.DATA.INTERVAL_PROB)
+        loader_train = SLTLoader('train', dataset_train, training=True, batch_size=cfg.TRAIN.BATCH_SIZE,
+                                 num_workers=cfg.TRAIN.NUM_WORKER,
+                                 shuffle=False, drop_last=True)
     else:
         raise ValueError("illegal script name")
 
@@ -185,6 +203,16 @@ def run(settings):
         objective = {'giou': giou_loss, 'l1': l1_loss, 'focal': focal_loss}
         loss_weight = {'giou': cfg.TRAIN.GIOU_WEIGHT, 'l1': cfg.TRAIN.L1_WEIGHT, 'focal': 2.}
         actor = ARTrackSeqActor(net=net, objective=objective, loss_weight=loss_weight, settings=settings, cfg=cfg, bins=bins, search_size=search_size)
+    elif settings.script_name == "artrackv2":
+        focal_loss = FocalLoss()
+        objective = {'giou': giou_loss, 'l1': l1_loss, 'focal': focal_loss}
+        loss_weight = {'giou': cfg.TRAIN.GIOU_WEIGHT, 'l1': cfg.TRAIN.L1_WEIGHT, 'focal': 2., 'score': cfg.TRAIN.SCORE_WEIGHT}
+        actor = ARTrackV2Actor(net=net, objective=objective, loss_weight=loss_weight, settings=settings, cfg=cfg, bins=bins, search_size=search_size)
+    elif settings.script_name == "artrackv2_seq":
+        focal_loss = FocalLoss()
+        objective = {'giou': giou_loss, 'l1': l1_loss, 'focal': focal_loss}
+        loss_weight = {'giou': cfg.TRAIN.GIOU_WEIGHT, 'l1': cfg.TRAIN.L1_WEIGHT, 'focal': 2., 'score_update': cfg.TRAIN.SCORE_WEIGHT}
+        actor = ARTrackV2SeqActor(net=net, objective=objective, loss_weight=loss_weight, settings=settings, cfg=cfg, bins=bins, search_size=search_size)
     else:
         raise ValueError("illegal script name")
 
@@ -192,12 +220,19 @@ def run(settings):
     #     raise ValueError("Deep supervision is not supported now.")
 
     # Optimizer, parameters, and learning rates
-    optimizer, lr_scheduler = get_optimizer_scheduler(net, cfg)
+    if settings.script_name == 'artrack' or settings.script_name == 'artrack_seq':
+        optimizer, lr_scheduler = get_optimizer_scheduler(net, cfg)
+    elif settings.script_name == 'artrackv2' or settings.script_name == 'artrackv2_seq':
+        optimizer, lr_scheduler = get_optimizer_scheduler_v2(net, cfg)
     use_amp = getattr(cfg.TRAIN, "AMP", False)
     if settings.script_name == "artrack":
         trainer = LTRTrainer(actor, [loader_train, loader_val], optimizer, settings, lr_scheduler, use_amp=use_amp)
     elif settings.script_name == "artrack_seq":
         trainer = LTRSeqTrainer(actor, [loader_train], optimizer, settings, lr_scheduler, use_amp=use_amp)
+    elif settings.script_name == "artrackv2":
+        trainer = LTRTrainer(actor, [loader_train, loader_val], optimizer, settings, lr_scheduler, use_amp=use_amp)
+    elif settings.script_name == "artrackv2_seq":
+        trainer = LTRSeqTrainerV2(actor, [loader_train], optimizer, settings, lr_scheduler, use_amp=use_amp)
 
     # train process
     trainer.train(cfg.TRAIN.EPOCH, load_latest=True, fail_safe=True)

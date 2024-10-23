@@ -79,6 +79,7 @@ class SequenceSampler(torch.utils.data.Dataset):
         # Sample frames in sequential manner
         template_frame_ids = self._sample_visible_ids(visible, num_ids=1, min_id=0,
                                                    max_id=len(visible) - self.num_search_frames)
+        
         if self.max_gap == -1:
             left = template_frame_ids[0]
         else:
@@ -206,60 +207,53 @@ class SequenceSampler(torch.utils.data.Dataset):
         is_video_dataset = dataset.is_video_sequence()
 
         # Sample a sequence with enough visible frames
-        while True:
-            try:
-                enough_visible_frames = False
-                while not enough_visible_frames:
-                    # Sample a sequence
-                    seq_id = random.randint(0, dataset.get_num_sequences() - 1)
+        enough_visible_frames = False
+        while not enough_visible_frames:
+            # Sample a sequence
+            seq_id = random.randint(0, dataset.get_num_sequences() - 1)
 
-                    # Sample frames
-                    seq_info_dict = dataset.get_sequence_info(seq_id)
-                    visible = seq_info_dict['visible']
+            # Sample frames
+            seq_info_dict = dataset.get_sequence_info(seq_id)
+            visible = seq_info_dict['visible']
 
-                    enough_visible_frames = visible.type(torch.int64).sum().item() > 2 * (
-                            self.num_search_frames + self.num_template_frames) and len(visible) >= (self.num_search_frames + self.num_template_frames)
+            enough_visible_frames = visible.type(torch.int64).sum().item() > 2 * (
+                    self.num_search_frames + self.num_template_frames) and len(visible) >= (self.num_search_frames + self.num_template_frames)
 
-                    enough_visible_frames = enough_visible_frames or not is_video_dataset
+            enough_visible_frames = enough_visible_frames or not is_video_dataset
 
-                if is_video_dataset:
-                    if self.frame_sample_mode == 'sequential':
-                        template_frame_ids, search_frame_ids = self._sequential_sample(visible)
+        if is_video_dataset:
+            if self.frame_sample_mode == 'sequential':
+                template_frame_ids, search_frame_ids = self._sequential_sample(visible)
 
-                    elif self.frame_sample_mode == 'random_interval':
-                        if random.random() < self.prob:
-                            template_frame_ids, search_frame_ids = self._random_interval_sample(visible)
-                        else:
-                            template_frame_ids, search_frame_ids = self._sequential_sample(visible)
-                    else:
-                        self.max_gap = max_gap
-                        self.max_interval = max_interval
-                        raise NotImplementedError
+            elif self.frame_sample_mode == 'random_interval':
+                if random.random() < self.prob:
+                    template_frame_ids, search_frame_ids = self._random_interval_sample(visible)
                 else:
-                    # In case of image dataset, just repeat the image to generate synthetic video
-                    template_frame_ids = [1] * self.num_template_frames
-                    search_frame_ids = [1] * self.num_search_frames
-                #print(dataset.get_name(), search_frame_ids, self.max_gap, self.max_interval)
+                    template_frame_ids, search_frame_ids = self._sequential_sample(visible)
+            else:
                 self.max_gap = max_gap
                 self.max_interval = max_interval
-                #print(self.max_gap, self.max_interval)
-                template_frames, template_anno, meta_obj_template = dataset.get_frames(seq_id, template_frame_ids, seq_info_dict)
-                search_frames, search_anno, meta_obj_search = dataset.get_frames(seq_id, search_frame_ids, seq_info_dict)
-                template_bbox = [bbox.numpy() for bbox in template_anno['bbox']] # tensor -> numpy array
-                search_bbox = [bbox.numpy() for bbox in search_anno['bbox']] # tensor -> numpy array
-                # print("====================================================================================")
-                # print("dataset index: {}".format(index))
-                # print("seq_id: {}".format(seq_id))
-                # print('template_frame_ids: {}'.format(template_frame_ids))
-                # print('search_frame_ids: {}'.format(search_frame_ids))
-                return TensorDict({'template_images': np.array(template_frames).squeeze(),    # 1 template images
-                        'template_annos': np.array(template_bbox).squeeze(),
-                        'search_images': np.array(search_frames),      # (num_frames) search images
-                        'search_annos': np.array(search_bbox),
-                        'seq_id': seq_id,
-                        'dataset': dataset.get_name(),
-                        'search_class': meta_obj_search.get('object_class_name'),
-                        'num_frames': len(search_frames)
-                        })
-            except Exception:
-                pass
+                raise NotImplementedError
+        else:
+            # In case of image dataset, just repeat the image to generate synthetic video
+            template_frame_ids = [1] * self.num_template_frames
+            search_frame_ids = [1] * self.num_search_frames
+        #print(dataset.get_name(), search_frame_ids, self.max_gap, self.max_interval)
+        self.max_gap = max_gap
+        self.max_interval = max_interval
+        #print(self.max_gap, self.max_interval)
+        template_frames, template_anno, meta_obj_template = dataset.get_frames(seq_id, template_frame_ids, seq_info_dict)
+        search_frames, search_anno, meta_obj_search = dataset.get_frames(seq_id, search_frame_ids, seq_info_dict)
+        template_bbox = [bbox.numpy() for bbox in template_anno['bbox']] # tensor -> numpy array
+        search_bbox = [bbox.numpy() for bbox in search_anno['bbox']] # tensor -> numpy array
+        
+
+        return TensorDict({'template_images': np.array(template_frames).squeeze(),    # 1 template images
+                'template_annos': np.array(template_bbox).squeeze(),
+                'search_images': np.array(search_frames),      # (num_frames) search images
+                'search_annos': np.array(search_bbox),
+                'seq_id': seq_id,
+                'dataset': dataset.get_name(),
+                'search_class': meta_obj_search.get('object_class_name'),
+                'num_frames': len(search_frames)
+                })

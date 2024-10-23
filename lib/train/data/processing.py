@@ -98,7 +98,16 @@ class STARKProcessing(BaseProcessing):
             data['search_images'], data['search_anno'], data['search_masks'] = self.transform['joint'](
                 image=data['search_images'], bbox=data['search_anno'], mask=data['search_masks'], new_roll=False)
 
-        for s in ['template', 'search']:
+        data["target_in_search_images"] = data["search_images"]
+        data["target_in_search_anno"] = data["search_anno"]
+        data["target_in_search_masks"] = data["search_masks"]
+        self.scale_jitter_factor["target_in_search"] = self.scale_jitter_factor["template"]
+        self.center_jitter_factor["target_in_search"] = self.center_jitter_factor["template"]
+        self.search_area_factor["target_in_search"] = self.search_area_factor["template"]
+        self.output_sz["target_in_search"] = self.output_sz["template"]
+        self.transform["target_in_search"] = self.transform["search"]
+
+        for s in ['template', 'search', 'target_in_search']:
             assert self.mode == 'sequence' or len(data[s + '_images']) == 1, \
                 "In pair mode, num train/test frames must be 1"
 
