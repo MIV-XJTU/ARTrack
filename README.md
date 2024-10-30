@@ -24,6 +24,7 @@ GitHub maintainer: [Yifan Bai](https://github.com/AlexDotHam)
 
 ### :bookmark:Our ARTrackV2 is accepted by CVPR2024!!!
 [[Deprecated Code](https://drive.google.com/file/d/15PHRN9utPfm1L4djr7U6MLHWIkx90EVD/view?usp=sharing)]
+[[Raw Result](https://drive.google.com/drive/folders/1Kd6IA60OQStfYCgsi42I20VRDTB7VcWl?usp=sharing)]
 
 We have released the training code for ARTrackV2 and merged it into this repository. You can adjust the config to use the corresponding ARTrackV2-marked modules. The training process remains the same as V1.
 
