@@ -124,7 +124,7 @@ def build_score_decoder(cfg, hidden_dim):
 
 def build_artrackv2_seq(cfg, training=True):
     current_dir = os.path.dirname(os.path.abspath(__file__))  # This is your Project Root
-    pretrained_path = "/home/baiyifan/code/vitrack/"
+    pretrained_path = os.path.join(current_dir, '../../../pretrained_models')
     if cfg.MODEL.PRETRAIN_FILE and ('OSTrack' not in cfg.MODEL.PRETRAIN_FILE) and training:
         pretrained = os.path.join(pretrained_path, cfg.MODEL.PRETRAIN_FILE)
     else:
