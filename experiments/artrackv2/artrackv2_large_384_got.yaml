@@ -22,7 +22,7 @@ DATA:
     NUMBER: 2
   TRAIN:
     DATASETS_NAME:
-    - GOT10K_trainfull
+    - GOT10K_train_full
     DATASETS_RATIO:
     - 1
     SAMPLE_PER_EPOCH: 57600
