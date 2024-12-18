@@ -22,6 +22,9 @@ GitHub maintainer: [Yifan Bai](https://github.com/AlexDotHam)
 ### :bookmark: Checkpoints in Baidu Pan
 [[Baidu Pan](https://pan.baidu.com/s/1bpdLdwO39kHD5iH06aGIzg?pwd=g06j)]  passwd: g06j 
 
+Google Drive:
+[ARTrackV2-B-256](https://drive.google.com/file/d/1tGaY5jQxZOTzJDWXgOgoHtBwc5l4NLQ2/view?usp=drive_link)       |     [ARTrackV2-B-256-GOT](https://drive.google.com/file/d/1RqsjHqTBsIN5ivD-C5tXDyhZlGZjJN88/view?usp=drive_link)     |     [ARTrackV2-L-384-GOT](https://drive.google.com/file/d/1KJ-TXFSn6K_OhchoRE29ePZbSm9sBHVS/view?usp=drive_link)     |
+
 ### :bookmark:Our ARTrackV2 is accepted by CVPR2024!!!
 [[Deprecated Code](https://drive.google.com/file/d/15PHRN9utPfm1L4djr7U6MLHWIkx90EVD/view?usp=sharing)]
 [[Raw Result](https://drive.google.com/drive/folders/1Kd6IA60OQStfYCgsi42I20VRDTB7VcWl?usp=sharing)]
