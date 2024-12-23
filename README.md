@@ -19,6 +19,10 @@ GitHub maintainer: [Yifan Bai](https://github.com/AlexDotHam)
 [[CVPR2023](https://openaccess.thecvf.com/content/CVPR2023/papers/Wei_Autoregressive_Visual_Tracking_CVPR_2023_paper.pdf)] 
 [[CVPR2024](https://artrackv2.github.io/)] 
 
+### :bookmark: Update List:
+- [ ] Fastitnp
+- [ ] VastTrack and More Datasets
+
 ### :bookmark: Checkpoints in Baidu Pan
 [[Baidu Pan](https://pan.baidu.com/s/1bpdLdwO39kHD5iH06aGIzg?pwd=g06j)]  passwd: g06j 
 
