@@ -61,7 +61,6 @@ class ARTrackV2Seq(nn.Module):
                                     return_last_attn=return_last_attn,)
 
         seq_feat = out['seq_feat'].permute(1, 0 ,2)
-        pos = self.backbone.position_embeddings.weight.unsqueeze(0).repeat(seq_feat.shape[1], 1, 1).permute(1, 0 ,2)
 
         score = self.score_mlp(score_feat)
         out['score'] = score
