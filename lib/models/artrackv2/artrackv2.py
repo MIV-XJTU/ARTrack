@@ -17,10 +17,11 @@ class ARTrackV2(nn.Module):
     def __init__(self,
                  transformer,
                  score_mlp,
+                 hidden_dim,
                  ):
 
         super().__init__()
-        self.identity = torch.nn.Parameter(torch.zeros(1, 3, 768))
+        self.identity = torch.nn.Parameter(torch.zeros(1, 3, hidden_dim))
         self.identity = trunc_normal_(self.identity, std=.02)        
         
         self.backbone = transformer
@@ -108,5 +109,6 @@ def build_artrackv2(cfg, training=True):
     model = ARTrackV2(
         backbone,
         score_decoder,
+        hidden_dim,
     )
     return model
