@@ -26,6 +26,7 @@ class ARTrackV2Seq(nn.Module):
     def __init__(self, transformer,
                  cross_2_decoder,
                  score_mlp,
+                 hidden_dim,
                  ):
         """ Initializes the model.
         Parameters:
@@ -36,7 +37,7 @@ class ARTrackV2Seq(nn.Module):
         self.backbone = transformer
         self.score_mlp = score_mlp
 
-        self.identity = torch.nn.Parameter(torch.zeros(1, 3, 768))
+        self.identity = torch.nn.Parameter(torch.zeros(1, 3, hidden_dim))
         self.identity = trunc_normal_(self.identity, std=.02)
 
         self.cross_2_decoder = cross_2_decoder
@@ -159,6 +160,7 @@ def build_artrackv2_seq(cfg, training=True):
         backbone,
         cross_2_decoder,
         score_mlp,
+        hidden_dim,
     )
     load_from = cfg.MODEL.PRETRAIN_PTH
     checkpoint = torch.load(load_from, map_location="cpu")
